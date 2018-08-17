@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: AutomationService
+
+  cloud:
+    zookeeper:
+      connect-string: vpna-qat-tmc020.ad-dev.issgovernance.com:2181,vpna-qat-tmc040.ad-dev.issgovernance.com:2181,vpna-qat-tmc065.ad-dev.issgovernance.com:2181
+      config:
+        enabled: true
+        root: configuration
+        defaultContext: automationUI-Common
+        profileSeparator: '::'
+      enabled: true
+      

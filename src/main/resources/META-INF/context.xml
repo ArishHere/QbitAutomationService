@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<Context path="qbit/AutomationService" docBase="dbcp" reloadable="true" crossContext="true">
+	
+      
+<!-- <Resource name="jdbc/MySQLHikari" 
+          auth="Container"
+          factory="com.zaxxer.hikari.HikariJNDIFactory"
+          type="javax.sql.DataSource"
+          driverClassName="com.mysql.jdbc.Driver"
+          jdbcUrl="jdbc:mysql://VPNA-QAT-DBX003.ad-dev.issgovernance.com:3306" 
+          username="automationui"
+          password="automationui" 
+          minimumIdle="5" maximumPoolSize="50" connectionTimeout="300000"     
+          maxLifetime="1800000"
+          connectionTestQuery="SELECT 1" 
+          connectionInitSql="SELECT 1" /> -->
+
+<Environment name="log4j.url"
+                type="java.lang.String"
+                value="url:http://vpna-qat-rep001.ad-dev.issgovernance.com/repository/LOG4J/AutomationWebService-eclipse-log4j.xml" />
+<Environment name="app.properties"
+                type="java.lang.String"
+                value="url:http://vpna-qat-rep001.ad-dev.issgovernance.com/repository/QBIT/automationUI.properties" />
+</Context>
+

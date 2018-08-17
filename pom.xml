@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>automationService</artifactId>
+	<packaging>war</packaging>
+
+	<name>automationService</name>
+	<description>QBIT project for Automation.</description>
+
+	<parent>
+		<groupId>org.iss.qbit.web</groupId>
+		<artifactId>Qbit-Web-Parent</artifactId>
+		<version>1.2.0.2-SNAPSHOT</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.iss.qbit.web</groupId>
+			<artifactId>WebCommons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.iss.qbit.db.spring</groupId>
+			<artifactId>DBCommons</artifactId>
+		</dependency>
+		<!-- <dependency> <groupId>com.zaxxer</groupId> <artifactId>HikariCP</artifactId> 
+			<version>2.4.1</version> <scope>compile</scope> </dependency> <dependency> 
+			<groupId>org.springframework</groupId> <artifactId>spring-jdbc</artifactId> 
+			</dependency> <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
+			</dependency> -->
+
+
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
+			</dependency> -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
+			<!-- <version>1.0.3.RELEASE</version> -->
+			<exclusions>
+				<exclusion>
+					<groupId>com.netflix.hystrix</groupId>
+					<artifactId>hystrix-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zookeeper-config</artifactId>
+			<!-- <version>1.0.3.RELEASE</version> -->
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
+			<scope>compile</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-autoconfigure</artifactId> 
+			<version>1.2.5.RELEASE</version> </dependency> -->
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter</artifactId> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-parent</artifactId>
+			<version>Angel.SR3</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.4</version>
+		</dependency>
+		<!-- Spring Mongodb -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.iss.qbit.db.spring</groupId>
+			<artifactId>MongoDBCommons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>biz.paluch.logging</groupId>
+			<artifactId>logstash-gelf</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>14.0.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<webAppConfig>
+						<contextPath>/qbit/AutomationService/</contextPath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>*.txt</include>
+					<include>aboutApp.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>false</filtering>
+				<excludes>
+					<exclude>*.txt</exclude>
+					<exclude>aboutApp.properties</exclude>
+				</excludes>
+			</resource>
+		</resources>
+	</build>
+
+
+</project>
